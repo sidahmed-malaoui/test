@@ -1,0 +1,11 @@
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+ <xsl:template match="/">
+    XSLT Version: <xsl:value-of select="system-property('xsl:version')"/>
+    XSLT Vendor: <xsl:value-of select="system-property('xsl:vendor')"/>
+    XSLT Vendor URL: <xsl:value-of select="system-property('xsl:vendor-url')"/>
+    this is a message: <xsl:message
+    <xsl:message terminate="no">
+        Hello mother fucker.
+    </xsl:message>
+ </xsl:template>
+</xsl:stylesheet>
