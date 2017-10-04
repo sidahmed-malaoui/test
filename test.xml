@@ -1,6 +1,10 @@
-<note>
-<to>Tove</to>
-<from>Jani</from>
-<heading>Reminder</heading>
-<body>Don't forget me this weekend!</body>
-</note>
+<eins>
+ <zwei> bla </zwei>
+ <drei>
+  <textfile href="eins.txt"/>
+ </drei>
+ <vier>
+  <textfile href="zwei.txt"/>
+ </vier>
+</eins>
+
