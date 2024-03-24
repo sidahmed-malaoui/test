@@ -1,0 +1,24 @@
+FROM ubuntu:18.04
+
+RUN apt-get update -yq && apt-get install -y python3-dev python3-pip ant git && python3 -m pip install mitmproxy==4.0.3 && python3 -m pip install requests
+
+WORKDIR /
+RUN git clone https://github.com/v-p-b/oracle_forms && cd oracle_forms && git checkout ae1f5d985a481000f8fcafd9daa369ef555870d2
+
+
+# Build Docker Container :
+# docker build -t oracle-forms-intercept-http .
+
+# Launch docker container : 
+# docker run -v /tmp:/mount --network=host -i -t --name=oracle-forms-intercept-http-container oracle-forms-intercept-http
+
+# Build Burp plugin inside docker container :
+# cd oracle_forms/OracleFormsSerializer/ 
+# cp /mount/frmall.jar lib/
+# ant
+# cp OracleFormsSerializer.jar /mount/
+# The plugin is built now, you can import it inside Burp.
+
+# Start mitmproxy
+# cd /oracle_forms/
+# mitmdump -s mitmproxy_oracleforms.py -p 8081
